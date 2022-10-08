@@ -46,7 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'person',
     'rest_framework',
+    'rest_framework_simplejwt'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication', ),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny', 'rest_framework.permissions.IsAuthenticatedOrReadOnly',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
